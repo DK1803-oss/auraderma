@@ -36,23 +36,16 @@
             background-color: rgba(255, 255, 255, 0.85);
         }
 
-        /* Pop from below animation */
         @keyframes popUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px) scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(50px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .animate-pop-up {
             animation: popUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .image-container {
+        .profile-image-container {
             aspect-ratio: 1 / 1;
             overflow: hidden;
             border-radius: 9999px;
@@ -60,14 +53,20 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
-        .image-container img {
+        .profile-image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center top;
         }
 
-        /* Icon background pulse for interactivity */
+        .gallery-image {
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
         .icon-glow {
             position: relative;
         }
@@ -94,13 +93,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-serif font-bold tracking-tight text-indigo-900">AURRA<span class="text-indigo-500">DERMA</span></span>
+                    <span class="text-2xl font-serif font-bold tracking-tight text-indigo-900 uppercase">AURRA<span class="text-indigo-500">DERMA</span></span>
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-8 items-center">
                     <a href="#home" class="text-sm font-medium hover:text-indigo-600 transition">Home</a>
-                    <a href="#about" class="text-sm font-medium hover:text-indigo-600 transition">About Dr. Baishya</a>
+                    <a href="#about" class="text-sm font-medium hover:text-indigo-600 transition">About</a>
+                    <a href="#gallery" class="text-sm font-medium hover:text-indigo-600 transition">Clinic</a>
                     <a href="#services" class="text-sm font-medium hover:text-indigo-600 transition">Services</a>
-                    <a href="#contact" class="text-sm font-medium hover:text-indigo-600 transition">Contact</a>
                     <a href="#appointment" class="bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">Book Appointment</a>
                 </div>
                 <div class="md:hidden">
@@ -110,10 +109,10 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pt-2 pb-6 space-y-2 border-b">
             <a href="#home" class="block py-2 text-base font-medium">Home</a>
             <a href="#about" class="block py-2 text-base font-medium">About</a>
+            <a href="#gallery" class="block py-2 text-base font-medium">Clinic Gallery</a>
             <a href="#services" class="block py-2 text-base font-medium">Services</a>
             <a href="#appointment" class="block py-2 text-indigo-600 font-bold">Book Appointment</a>
         </div>
@@ -122,19 +121,19 @@
     <!-- Hero Section -->
     <header id="home" class="hero-gradient pt-16 pb-24 px-4 overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-            <div class="lg:w-1/2 space-y-8 text-center lg:text-left animate-pop-up" style="animation-delay: 0.1s;">
+            <div class="lg:w-1/2 space-y-8 text-center lg:text-left animate-pop-up">
                 <div class="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-full text-sm font-bold tracking-wide uppercase">
-                    Advanced Dermatology & Aesthetics
+                    20+ Years of Excellence in Dermatology
                 </div>
                 <h1 class="text-5xl lg:text-7xl font-bold leading-tight text-slate-900">
-                    Your Skin’s Health <br><span class="text-indigo-600">Our Priority.</span>
+                    Trusted Care <br><span class="text-indigo-600">For Your Skin.</span>
                 </h1>
                 <p class="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                    Welcome to AurraDerma Clinic, led by <strong>Dr. Anushree Baishya</strong> (MBBS, MD Dermatology). Specialist in clinical dermatology, advanced aesthetics, and laser treatments.
+                    Led by <strong>Dr. Anushree Baishya</strong>, AurraDerma Clinic combines clinical expertise with advanced technology for over two decades.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <a href="#appointment" class="px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all transform hover:scale-105 shadow-xl shadow-indigo-200">
-                        Start Your Journey
+                        Book Consultation
                     </a>
                     <a href="https://wa.me/918453173774" target="_blank" class="px-8 py-4 bg-emerald-500 text-white rounded-xl font-bold hover:bg-emerald-600 transition-all flex items-center justify-center gap-2">
                         <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
@@ -142,21 +141,21 @@
                 </div>
                 <div class="flex items-center justify-center lg:justify-start gap-8 pt-4">
                     <div class="text-center">
-                        <div class="text-2xl font-bold text-slate-900">15+</div>
+                        <div class="text-2xl font-bold text-slate-900">20+</div>
                         <div class="text-xs text-slate-500 uppercase tracking-widest font-bold">Years Experience</div>
                     </div>
                     <div class="h-8 w-px bg-slate-200"></div>
                     <div class="text-center">
-                        <div class="text-2xl font-bold text-slate-900">10k+</div>
+                        <div class="text-2xl font-bold text-slate-900">20k+</div>
                         <div class="text-xs text-slate-500 uppercase tracking-widest font-bold">Happy Patients</div>
                     </div>
                 </div>
             </div>
-            <div class="lg:w-1/2 relative animate-pop-up" style="animation-delay: 0.3s;">
+            <div class="lg:w-1/2 relative animate-pop-up" style="animation-delay: 0.2s;">
                 <div class="absolute -top-10 -left-10 w-72 h-72 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"></div>
                 <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-rose-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"></div>
-                <div class="relative image-container max-w-md mx-auto lg:max-w-lg">
-                    <img src="https://i.ibb.co/hFBdVndf/Untitled-design-11.png" alt="Dr. Anushree Baishya" onerror="this.src='https://via.placeholder.com/600x600?text=Dr.+Anushree+Baishya'">
+                <div class="relative profile-image-container max-w-md mx-auto lg:max-w-lg">
+                    <img src="https://i.ibb.co/hFBdVndf/Untitled-design-11.png" alt="Dr. Anushree Baishya">
                 </div>
             </div>
         </div>
@@ -165,72 +164,81 @@
     <!-- Meet The Doctor -->
     <section id="about" class="py-24 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
                 <div class="space-y-6">
                     <h2 class="text-4xl font-bold text-slate-900">Meet Dr. Anushree Baishya</h2>
-                    <p class="text-indigo-600 font-semibold text-lg uppercase tracking-wider">MBBS, MD Dermatology (Reg no. 16819 AMC)</p>
+                    <p class="text-indigo-600 font-semibold text-lg uppercase tracking-wider">M.B.B.S, M.D Dermatology | Reg no. 16819 (AMC)</p>
                     <p class="text-slate-600 leading-relaxed">
-                        Dr. Anushree Baishya is a highly acclaimed dermatologist based in Guwahati, Assam. With a rich educational background from GMCH and AMCH, she has dedicated over a decade to excellence in skin health. 
+                        Dr. Anushree Baishya is a highly acclaimed dermatologist based in Guwahati, Assam, with more than <strong>two decades</strong> of experience in clinical and aesthetic skin care. 
                     </p>
                     <p class="text-slate-600 leading-relaxed">
-                        Her global expertise includes specialized training in <strong>Aesthetic Dermatology from the National Skin Centre, Singapore</strong>. She is an award-winning practitioner, recognized for her research and presentations at international platforms like Dubai Derma.
+                        Her global expertise includes specialized training in <strong>Aesthetic Dermatology from the National Skin Centre, Singapore</strong>. She is an active voice in the medical community, regularly sharing her insights through presentations at national and international platforms like state conferences, national conferences, and prestigious international meets such as <strong>Dubai Derma</strong>.
                     </p>
                     
                     <div class="grid sm:grid-cols-2 gap-6 pt-4">
-                        <div class="bg-slate-50 p-4 rounded-2xl">
-                            <i class="fa-solid fa-graduation-cap text-indigo-500 text-2xl mb-3"></i>
-                            <h4 class="font-bold text-slate-900">MD Dermatology</h4>
-                            <p class="text-sm text-slate-500 italic text-wrap">Assam Medical College (2007)</p>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <i class="fa-solid fa-graduation-cap text-indigo-500 text-2xl mb-4"></i>
+                            <h4 class="font-bold text-slate-900 mb-2">Qualifications</h4>
+                            <div class="text-sm text-slate-600 space-y-2">
+                                <p><strong>M.B.B.S:</strong> Guwahati Medical College and Hospital; Guwahati Assam (2003)</p>
+                                <p><strong>M.D Dermatology:</strong> Assam Medical College and Hospital; Dibrugarh Assam (2007)</p>
+                            </div>
                         </div>
-                        <div class="bg-slate-50 p-4 rounded-2xl">
-                            <i class="fa-solid fa-award text-indigo-500 text-2xl mb-3"></i>
-                            <h4 class="font-bold text-slate-900">Appreciation Award</h4>
-                            <p class="text-sm text-slate-500 italic text-wrap">Injectables - DERMACON</p>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <i class="fa-solid fa-trophy text-indigo-500 text-2xl mb-4"></i>
+                            <h4 class="font-bold text-slate-900 mb-2">Achievements</h4>
+                            <ul class="text-xs text-slate-600 space-y-2 list-disc pl-4">
+                                <li>Secretary, Guwahati Chapter NEIADVL (2018-2020)</li>
+                                <li>Joint Secretary, NEIADVL (2018-2020)</li>
+                                <li>Secretary, NEIADVL (2022-2024)</li>
+                                <li>Member, IADVL Task Force Against Quackery (2018-2020)</li>
+                                <li>Member, SIG Aesthetics (IADVL Academy), 2022-2024</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="bg-indigo-900 text-white p-8 lg:p-12 rounded-[2.5rem] shadow-2xl space-y-8">
-                    <h3 class="text-3xl font-bold">Specialized Interests</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 bg-indigo-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-check text-xs text-indigo-300"></i>
+
+                <div class="bg-indigo-50 p-8 lg:p-12 rounded-[2.5rem] space-y-8">
+                    <h3 class="text-3xl font-bold text-indigo-900">Current Consultations</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-indigo-100">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-hospital-user"></i>
+                                </div>
+                                <h4 class="font-bold text-indigo-900 text-lg">AURRA Derma Skin Clinic</h4>
                             </div>
-                            <span class="text-indigo-100">Psoriasis & Autoimmune Disorders</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 bg-indigo-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-check text-xs text-indigo-300"></i>
-                            </div>
-                            <span class="text-indigo-100">Advanced Lasers for Pigmentation</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 bg-indigo-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-check text-xs text-indigo-300"></i>
-                            </div>
-                            <span class="text-indigo-100">Aesthetic Injectables (Fillers/Botox)</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 bg-indigo-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-check text-xs text-indigo-300"></i>
-                            </div>
-                            <span class="text-indigo-100">Vitiligo Management</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 bg-indigo-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-check text-xs text-indigo-300"></i>
-                            </div>
-                            <span class="text-indigo-100">Dermatosurgery</span>
-                        </li>
-                    </ul>
-                    <hr class="border-indigo-800">
-                    <div class="flex items-center gap-4">
-                        <div class="p-3 bg-white/10 rounded-xl">
-                            <i class="fa-solid fa-shield-heart text-2xl text-indigo-300"></i>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                <strong>Rajgarh Road, Guwahati</strong><br>
+                                Role: Proprietor & Chief Consultant Dermatologist
+                            </p>
                         </div>
-                        <div>
-                            <p class="text-xs uppercase tracking-widest text-indigo-300 font-bold">Consulting at</p>
-                            <p class="text-sm font-medium">Kaya Clinic & Health City Hospital</p>
+
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-indigo-100">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-hospital"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-lg">Health City Hospital</h4>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                <strong>Guwahati</strong><br>
+                                Role: Visiting Consultant - Dept of Dermatology
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <h4 class="font-bold text-indigo-900 mb-4 flex items-center gap-2">
+                            <span class="w-8 h-px bg-indigo-200"></span> Special Interests
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-indigo-600 border border-indigo-100 shadow-sm">Psoriasis</span>
+                            <span class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-indigo-600 border border-indigo-100 shadow-sm">Vitiligo</span>
+                            <span class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-indigo-600 border border-indigo-100 shadow-sm">Autoimmune Disorders</span>
+                            <span class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-indigo-600 border border-indigo-100 shadow-sm">Dermatosurgery</span>
+                            <span class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-indigo-600 border border-indigo-100 shadow-sm">Lasers</span>
                         </div>
                     </div>
                 </div>
@@ -238,32 +246,63 @@
         </div>
     </section>
 
+    <!-- Clinic Gallery -->
+    <section id="gallery" class="py-24 px-4 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">The Clinic</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto italic font-serif">A world-class environment designed for your comfort and premium skin care experience.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
+                <div class="gallery-item rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
+                    <img src="https://i.ibb.co/JP5Z28c/Whats-App-Image-2026-03-31-at-21-11-01.jpg" alt="Clinic Area" class="gallery-image w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
+                    <img src="https://i.ibb.co/h1TsgK5S/Whats-App-Image-2026-03-31-at-21-11-02.jpg" alt="Clinic Interior" class="gallery-image w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
+                    <img src="https://i.ibb.co/DPPWBvh5/Whats-App-Image-2026-03-31-at-21-11-03.jpg" alt="Treatment Room" class="gallery-image w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
+                    <img src="https://i.ibb.co/svzhTX3L/Whats-App-Image-2026-03-31-at-21-11-03-1.jpg" alt="Advanced Equipment" class="gallery-image w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
+                    <img src="https://i.ibb.co/KxxkbCmx/Whats-App-Image-2026-03-31-at-21-13-53.jpg" alt="Consultation Space" class="gallery-image w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
+                    <img src="https://i.ibb.co/23P0bcS8/Whats-App-Image-2026-03-31-at-21-13-53-2.jpg" alt="Reception" class="gallery-image w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Grid -->
-    <section id="services" class="py-24 px-4 bg-slate-50">
+    <section id="services" class="py-24 px-4 bg-white">
         <div class="max-w-7xl mx-auto text-center mb-16">
             <h2 class="text-4xl font-bold mb-4">World-Class Skin Solutions</h2>
-            <p class="text-slate-600 max-w-2xl mx-auto">From clinical skin concerns to aesthetic transformations, we offer a comprehensive range of services tailored to your needs.</p>
+            <p class="text-slate-600 max-w-2xl mx-auto">Comprehensive treatments tailored to your unique skin needs.</p>
         </div>
         
         <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-            <!-- Medical -->
-            <div class="service-card bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
-                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 icon-glow">
+            <!-- Clinical Care -->
+            <div class="service-card bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
+                <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8 icon-glow">
                     <i class="fa-solid fa-user-doctor text-3xl"></i>
                 </div>
-                <h3 class="text-2xl font-bold mb-4 text-slate-800">Medical Care</h3>
+                <h3 class="text-2xl font-bold mb-4 text-slate-800">Clinical Care</h3>
                 <ul class="space-y-3 text-slate-600">
                     <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Acne & Scar Treatment</li>
                     <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Eczema & Dermatitis</li>
                     <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Fungal Infections</li>
-                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Hair Loss (Alopecia)</li>
-                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Nail Disorders</li>
+                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Psoriasis Management</li>
+                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Vitiligo Care</li>
                 </ul>
             </div>
 
-            <!-- Aesthetic -->
-            <div class="service-card bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
-                <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-8 icon-glow">
+            <!-- Aesthetic Glow -->
+            <div class="service-card bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
+                <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-8 icon-glow">
                     <i class="fa-solid fa-wand-magic-sparkles text-3xl"></i>
                 </div>
                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Aesthetic Glow</h3>
@@ -276,9 +315,9 @@
                 </ul>
             </div>
 
-            <!-- Procedural -->
-            <div class="service-card bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
-                <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-8 icon-glow">
+            <!-- Advanced Procedures -->
+            <div class="service-card bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-8 icon-glow">
                     <i class="fa-solid fa-hand-sparkles text-3xl"></i>
                 </div>
                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Advanced Procedures</h3>
@@ -287,51 +326,53 @@
                     <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Tattoo Removal</li>
                     <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Mole & Wart Removal</li>
                     <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> PRP Therapy</li>
-                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Cyst Excision</li>
+                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Dermatosurgery</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- Appointment Form -->
-    <section id="appointment" class="py-24 px-4 bg-white relative">
-        <div class="max-w-4xl mx-auto bg-indigo-50 rounded-[3rem] p-8 lg:p-16 shadow-inner">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2">Book Your Consultation</h2>
-                <p class="text-slate-600 italic">Get expert advice from Dr. Anushree Baishya</p>
+    <section id="appointment" class="py-24 px-4 bg-white">
+        <div class="max-w-4xl mx-auto bg-indigo-900 rounded-[3rem] p-8 lg:p-16 shadow-2xl text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            
+            <div class="text-center mb-12 relative z-10">
+                <h2 class="text-4xl font-bold mb-2">Book Your Visit</h2>
+                <p class="text-indigo-200">Consult with Dr. Anushree Baishya</p>
             </div>
 
-            <form action="https://formspree.io/f/dermatanu@gmail.com" method="POST" class="grid md:grid-cols-2 gap-6">
+            <form action="https://formspree.io/f/dermatanu@gmail.com" method="POST" class="grid md:grid-cols-2 gap-6 relative z-10">
                 <div class="space-y-2">
-                    <label class="text-sm font-bold text-slate-700 ml-1">Full Name</label>
-                    <input type="text" name="name" required placeholder="John Doe" class="w-full px-5 py-4 rounded-2xl bg-white border-transparent focus:border-indigo-500 focus:ring-0 transition outline-none shadow-sm">
+                    <label class="text-xs font-bold uppercase tracking-widest text-indigo-300 ml-1">Full Name</label>
+                    <input type="text" name="name" required placeholder="John Doe" class="w-full px-5 py-4 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-white/40 focus:bg-white/20 focus:outline-none transition">
                 </div>
                 <div class="space-y-2">
-                    <label class="text-sm font-bold text-slate-700 ml-1">Phone Number</label>
-                    <input type="tel" name="phone" required placeholder="+91 00000 00000" class="w-full px-5 py-4 rounded-2xl bg-white border-transparent focus:border-indigo-500 focus:ring-0 transition outline-none shadow-sm">
+                    <label class="text-xs font-bold uppercase tracking-widest text-indigo-300 ml-1">Phone Number</label>
+                    <input type="tel" name="phone" required placeholder="+91 00000 00000" class="w-full px-5 py-4 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-white/40 focus:bg-white/20 focus:outline-none transition">
                 </div>
                 <div class="space-y-2">
-                    <label class="text-sm font-bold text-slate-700 ml-1">Select Service</label>
-                    <select name="service" class="w-full px-5 py-4 rounded-2xl bg-white border-transparent focus:border-indigo-500 focus:ring-0 transition outline-none shadow-sm appearance-none">
-                        <option>Clinical Consultation</option>
-                        <option>Laser Treatment</option>
-                        <option>Aesthetic/Injectables</option>
-                        <option>Follow-up Visit</option>
+                    <label class="text-xs font-bold uppercase tracking-widest text-indigo-300 ml-1">Service Type</label>
+                    <select name="service" class="w-full px-5 py-4 rounded-2xl bg-white/10 border border-white/10 text-white focus:bg-white/20 focus:outline-none transition appearance-none">
+                        <option class="text-indigo-900">Clinical Consultation</option>
+                        <option class="text-indigo-900">Laser Treatment</option>
+                        <option class="text-indigo-900">Aesthetic/Injectables</option>
+                        <option class="text-indigo-900">PRP / Hair Care</option>
                     </select>
                 </div>
                 <div class="space-y-2">
-                    <label class="text-sm font-bold text-slate-700 ml-1">Preferred Date</label>
-                    <input type="date" name="date" class="w-full px-5 py-4 rounded-2xl bg-white border-transparent focus:border-indigo-500 focus:ring-0 transition outline-none shadow-sm">
+                    <label class="text-xs font-bold uppercase tracking-widest text-indigo-300 ml-1">Preferred Date</label>
+                    <input type="date" name="date" class="w-full px-5 py-4 rounded-2xl bg-white/10 border border-white/10 text-white focus:bg-white/20 focus:outline-none transition">
                 </div>
                 <div class="md:col-span-2 space-y-2">
-                    <label class="text-sm font-bold text-slate-700 ml-1">Brief Concern</label>
-                    <textarea name="message" rows="4" placeholder="Briefly describe your skin concern..." class="w-full px-5 py-4 rounded-2xl bg-white border-transparent focus:border-indigo-500 focus:ring-0 transition outline-none shadow-sm"></textarea>
+                    <label class="text-xs font-bold uppercase tracking-widest text-indigo-300 ml-1">Brief Concern</label>
+                    <textarea name="message" rows="3" placeholder="How can we help you?" class="w-full px-5 py-4 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-white/40 focus:bg-white/20 focus:outline-none transition"></textarea>
                 </div>
                 <div class="md:col-span-2 text-center pt-4">
-                    <button type="submit" class="w-full md:w-auto px-12 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition shadow-xl shadow-indigo-100">
-                        Confirm Appointment Request
+                    <button type="submit" class="w-full md:w-auto px-12 py-4 bg-white text-indigo-900 rounded-2xl font-bold hover:bg-indigo-50 transition shadow-xl">
+                        Send Booking Request
                     </button>
-                    <p class="text-xs text-slate-400 mt-4 italic">*We will call you back to confirm your time slot.</p>
+                    <p class="text-[10px] text-indigo-300 mt-4 uppercase tracking-tighter">*Availability will be confirmed via phone call</p>
                 </div>
             </form>
         </div>
@@ -343,64 +384,49 @@
             <div class="grid lg:grid-cols-2 gap-16 items-start">
                 <div class="space-y-12">
                     <div>
-                        <h2 class="text-4xl font-bold mb-6">Visit Our Clinic</h2>
-                        <p class="text-slate-400 mb-8">Located centrally in Zoo Road, Guwahati, we provide a sterile and welcoming environment for all our patients.</p>
-                        
-                        <div class="space-y-6">
+                        <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
+                        <div class="space-y-8">
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <i class="fa-solid fa-location-dot text-indigo-400"></i>
+                                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center flex-shrink-0 text-indigo-400">
+                                    <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold">Clinic Address</h4>
-                                    <p class="text-slate-400">House No 12, Jonali Path, Zoo Road<br>Guwahati, Assam 781024</p>
+                                    <h4 class="font-bold text-lg">AURRA Derma Skin Clinic</h4>
+                                    <p class="text-slate-400">Rajgarh Road, Guwahati, Assam 781003</p>
+                                    <p class="text-xs text-indigo-400 mt-1 italic">Proprietor: Dr. Anushree Baishya</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <i class="fa-solid fa-phone text-indigo-400"></i>
+                                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center flex-shrink-0 text-indigo-400">
+                                    <i class="fa-solid fa-hospital"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold">Contact & WhatsApp</h4>
+                                    <h4 class="font-bold text-lg">Health City Hospital</h4>
+                                    <p class="text-slate-400">Visiting Consultant - Dept of Dermatology</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center flex-shrink-0 text-emerald-400">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Call or WhatsApp</h4>
                                     <p class="text-slate-400">08453173774 / 9864369055</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <i class="fa-solid fa-envelope text-indigo-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">Email</h4>
-                                    <p class="text-slate-400">dermatanu@gmail.com</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="flex gap-4">
-                        <a href="#" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center hover:bg-indigo-600 transition">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center hover:bg-indigo-600 transition">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="https://wa.me/918453173774" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center hover:bg-emerald-600 transition">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-indigo-600 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-indigo-600 transition"><i class="fa-brands fa-facebook"></i></a>
                     </div>
                 </div>
 
                 <div class="rounded-3xl overflow-hidden shadow-2xl h-[450px] bg-slate-800 border-4 border-slate-800">
-                    <!-- Placeholder for Interactive Map -->
-                    <div class="w-full h-full relative group">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.975416556128!2d91.7766!3d26.1654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA5JzU1LjQiTiA5McKwNDYnMzUuOCJF!5e0!3m2!1sen!2sin!4v1634567890123!5m2!1sen!2sin" 
-                            width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9);" allowfullscreen="" loading="lazy">
-                        </iframe>
-                        <div class="absolute inset-0 bg-indigo-900/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                            <div class="bg-white text-indigo-900 px-6 py-3 rounded-full font-bold">Open in Google Maps</div>
-                        </div>
-                    </div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.89241514336!2d91.772583!3d26.167889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a593883a8b603%3A0x8e8a798f0293708e!2sRajgarh%20Rd%2C%20Guwahati%2C%20Assam!5e0!3m2!1sen!2sin!4v1634567890123!5m2!1sen!2sin" 
+                        width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9);" allowfullscreen="" loading="lazy">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -409,41 +435,28 @@
     <!-- Footer -->
     <footer class="py-12 px-4 bg-slate-900 text-slate-500 border-t border-slate-800 text-center">
         <div class="max-w-7xl mx-auto space-y-6">
-            <p class="text-xl font-serif font-bold tracking-tight text-white italic">AURRA<span class="text-indigo-500">DERMA</span></p>
+            <p class="text-2xl font-serif font-bold tracking-tight text-white italic">AURRA<span class="text-indigo-500">DERMA</span></p>
             <p class="text-sm max-w-lg mx-auto leading-relaxed">
-                Dedicated to clinical excellence in dermatology and skincare. Your journey to radiant, healthy skin starts here.
+                Expert dermatological care by Dr. Anushree Baishya. More than 20 years of building healthy skin for our community.
             </p>
-            <div class="pt-6 text-xs uppercase tracking-widest">
+            <div class="pt-6 text-xs uppercase tracking-widest font-bold">
                 &copy; 2024 AurraDerma Clinic. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- Floating WhatsApp -->
     <a href="https://wa.me/918453173774" class="fixed bottom-8 right-8 z-50 bg-emerald-500 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:bg-emerald-600 transition-all transform hover:scale-110">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <script>
-        // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // Close menu on link click
+        menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
         document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
+            link.addEventListener('click', () => menu.classList.add('hidden'));
         });
-
-        // Smooth reveal animations on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -452,11 +465,11 @@
                     entry.target.classList.remove('opacity-0', 'translate-y-10');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
-            observer.observe(card);
+        document.querySelectorAll('.service-card, .gallery-item').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(el);
         });
     </script>
 </body>
